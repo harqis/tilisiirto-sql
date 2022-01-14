@@ -1,0 +1,5 @@
+Tilisiirto-sivu:
+http://tie-tkannat.it.tuni.fi/~tk427989/tilisiirto_sivu1.php
+
+Täältä voi seurata, päivittyykö tietokanta:
+http://tie-tkannat.it.tuni.fi/~tk427989/tilisiirto_testaus.php
