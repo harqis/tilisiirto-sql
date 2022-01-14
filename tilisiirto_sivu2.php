@@ -1,5 +1,4 @@
-<!-- Tietokantajärjestelmät SQL, syksy 2020
-PHP-ohjelmointitehtävä, sivu 2
+<!-- Tilisiirto, sivu 2
 Tommi Kivinen
 tommi.kivinen@tuni.fi -->
 
@@ -21,7 +20,7 @@ tommi.kivinen@tuni.fi -->
    // Lopetetaan sessio, kun Lopeta-painiketta on painettu.
    if (isset($_POST['lopeta'])) {
       session_destroy();
-      // Siirrytään takaisin ekalle sivulle.
+      // SiirrytÃ¤Ã¤n takaisin ekalle sivulle.
       header('Location: tilisiirto_sivu1.php');
     }
 ?>
