@@ -1,5 +1,4 @@
-<!-- Tietokantajärjestelmät SQL, syksy 2020
-PHP-ohjelmointitehtävä, tietokannan tiedot näyttävä sivu
+<!-- Tilisiirto, tietokannan tiedot näyttävä sivu
 Tommi Kivinen
 tommi.kivinen@tuni.fi -->
 
