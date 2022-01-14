@@ -1,5 +1,4 @@
--- Tietokantajärjestelmät SQL, syksy 2020
--- PHP-ohjelmointitehtävä, tietokannan luonti
+-- Tilisiirto, tietokannan luonti
 -- Tommi Kivinen
 -- tommi.kivinen@tuni.fi
 
