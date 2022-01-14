@@ -1,5 +1,4 @@
-<!-- Tietokantaj‰rjestelm‰t SQL, syksy 2020
-PHP-ohjelmointiteht‰v‰, sivu 1
+<!-- Tilisiirto, sivu 1
 Tommi Kivinen
 tommi.kivinen@tuni.fi -->
 
@@ -8,7 +7,7 @@ tommi.kivinen@tuni.fi -->
 // Aloitetaan sessio.
 session_start();
 
-// Luodaan tietokantayhteys ja ilmoitetaan mahdollisesta virheest‰.
+// Luodaan tietokantayhteys ja ilmoitetaan mahdollisesta virheest√§.
 
 $y_tiedot= "dbname=tk427989 user=tk427989 password=lRkfOSQSDN5hWRu";
 
@@ -17,13 +16,13 @@ if (!$yhteys= pg_connect($y_tiedot))
    
 if (isset($_POST['tallenna']))
 {
-   // Tarvittavat, k‰ytt‰j‰n antamat tiedot.
+   // Tarvittavat, k√§ytt√§j√§n antamat tiedot.
    
    $vanhatili = intval($_POST['vanhatili']);
    $uusitili = intval($_POST['uusitili']);
    $_SESSION['summa'] = intval($_POST['summa']);   
    
-   // Selvitet‰‰n annettujen tilien omistajat.
+   // Selvitet√§√§n annettujen tilien omistajat.
    
    $omistajakysely1 = "SELECT omistaja FROM tilit WHERE tilinumero = {$vanhatili}";
    $omistajakysely2 = "SELECT omistaja FROM tilit WHERE tilinumero = {$uusitili}";
@@ -37,7 +36,7 @@ if (isset($_POST['tallenna']))
    $_SESSION['vanhaomistaja'] = $tulos1[0];
    $_SESSION['uusiomistaja'] = $tulos2[0];
 
-   // Jos kenttiin on syˆtetty oikeelliset tiedot, tehd‰‰n tilisiirto.
+   // Jos kenttiin on sy√∂tetty oikeelliset tiedot, tehd√§√§n tilisiirto.
    
    $tiedot_ok = $vanhatili != 0 && $uusitili != 0 && $_SESSION['summa'] > 0;
    if ($tiedot_ok)
@@ -52,10 +51,10 @@ if (isset($_POST['tallenna']))
       // Suoritetaan paivitys1.
       $paivitys1 = pg_query($kysely1);
          
-      // Asetetaan viesti-muuttuja lis‰‰misen onnistumisen mukaan.
-      // Lis‰t‰‰n virheilmoitukseen myˆs virheen syy (pg_last_error).
+      // Asetetaan viesti-muuttuja lis√§√§misen onnistumisen mukaan.
+      // Lis√§t√§√§n virheilmoitukseen my√∂s virheen syy (pg_last_error).
          
-      // Yhdelle tilille pit‰‰ tapahtua muutos.
+      // Yhdelle tilille pit√§√§ tapahtua muutos.
       if ($paivitys1 && (pg_affected_rows($paivitys1) > 0)){
          
          // Suoritetaan paivitys2.
@@ -66,18 +65,18 @@ if (isset($_POST['tallenna']))
             // Kaikki onnistui, commit.
             pg_query('COMMIT');
             
-            // Siirryt‰‰n tulossivulle.
+            // Siirryt√§√§n tulossivulle.
             header('Location: tilisiirto_sivu2.php');
          }
          else {
-            // Ep‰onnistui, rollback.
+            // Ep√§onnistui, rollback.
             pg_query('ROLLBACK');
             
             $viesti = 'Tilisiirto epaonnistui. Tarkista saava tilinumero. ' . pg_last_error($yhteys);
          }
       }
       else {
-         // Ep‰onnistui, rollback.
+         // Ep√§onnistui, rollback.
          pg_query('ROLLBACK');
          
          $viesti = 'Tilisiirto epaonnistui. Tarkista veloitettava tilinumero.' . pg_last_error($yhteys);
@@ -102,7 +101,7 @@ pg_close($yhteys);
 
 <body>
 
-<!--Lomake l‰hetet‰‰n samalle sivulle.-->
+<!--Lomake l√§hetet√§√§n samalle sivulle.-->
 <form action="tilisiirto_sivu1.php" method="post">
 
 <h2>Tilisiirto</h2>
